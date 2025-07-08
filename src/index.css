@@ -10,5 +10,5 @@ body {
 }
 
 .highlight.active {
-  @apply bg-green-500 border-2 font-bold border-green-700;
+  @apply bg-green-500 border-2 font-bold border-green-700 ease-in-out duration-300;
 }
