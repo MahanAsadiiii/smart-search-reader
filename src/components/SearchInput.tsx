@@ -8,15 +8,14 @@ type Props = {
 };
 
 
-
 const SearchInput = ({ value, onChange }: Props) => {
     const [modal, setModal] = useState(false)
-
+    //showing recommened words by filtering on dictionary array
     const suggestions = dictionary.filter((word) =>
         word.toLowerCase().startsWith(value.toLowerCase())
     );
 
-
+    //for managing modal depends on value
     useEffect(() => {
         if (value && suggestions.length > 0) {
             setModal(true);

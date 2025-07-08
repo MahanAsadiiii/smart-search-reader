@@ -3,8 +3,6 @@ import { useEffect, useRef, useState } from "react";
 type Props = {
     text: string;
     searchTerm: string;
-    // activeIndex: number;
-    // onMatchCountChange: (count: number) => void;
 };
 
 const TextDisplay = ({ text, searchTerm }: Props) => {
@@ -13,6 +11,7 @@ const TextDisplay = ({ text, searchTerm }: Props) => {
     const [matchCount, setMatchCount] = useState(0);
     let matchIndex = 0;
 
+    //for finding searchTerm in texts
     const regex = new RegExp(`(${searchTerm})`, 'gi');
     const parts = text.split(regex);
 
@@ -20,29 +19,25 @@ const TextDisplay = ({ text, searchTerm }: Props) => {
 
     const matchRefs = useRef<(HTMLSpanElement | null)[]>([]);
 
+    //handle match words index
     const nextWord = () => setActiveMatchIndex((prev) => prev + 1 < matchCount ? prev + 1 : 0);
     const prevWord = () => setActiveMatchIndex((prev) => prev - 1 >= 0 ? prev - 1 : matchCount - 1);
 
-    // آپدیت تعداد نتایج
+    // update matchCounter for showing 
     useEffect(() => {
         setMatchCount(matchCountLengh);
     }, [searchTerm, text]);
 
-    useEffect(() => {
-        const el = matchRefs.current[activeMatchIndex];
-        if (el) {
-            el.scrollIntoView({ behavior: "smooth", block: "center" });
-        }
-    }, [activeMatchIndex]);
-
     return (
         <div className="flex flex-col gap-3">
+            {/* if seachTerm has a value elements, shows  */}
             {searchTerm.trim() &&
                 <div className="flex justify-between">
                     <div className="flex items-center gap-2 select-none">
                         <h5 className="font-bold text-xl">how many times it found:</h5>
                         <span className="text-amber-300 font-bold text-lg">{matchCountLengh}</span>
                     </div>
+                    {/* arrow for change finded word */}
                     <div className=" border border-white">
                         <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} fill="currentColor" viewBox="0 0 24 24" onClick={() => prevWord()} className="border-b">
                             <path d="M7 14l5-5 5 5H7z" />

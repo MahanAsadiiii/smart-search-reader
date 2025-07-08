@@ -4,6 +4,7 @@ import TextDisplay from "./components/TextDisplay";
 import { sampleText } from "./static/sampletext";
 
 export default function App() {
+  //search value is a global state for handle in child components
   const [searchTerm, setSearchTerm] = useState('');
 
   return (
