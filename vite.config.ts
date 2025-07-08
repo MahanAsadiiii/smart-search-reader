@@ -3,7 +3,6 @@ import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react-swc";
 import { VitePWA } from "vite-plugin-pwa";
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [
     react(),
@@ -19,9 +18,9 @@ export default defineConfig({
       manifest: {
         name: "Smart Search Reader",
         short_name: "SearchReader",
-        description: "A smart text search PWA with highlight and scroll",
-        theme_color: "#ffffff",
-        background_color: "#ffffff",
+        description: "Smart text search PWA with highlight and autocomplete",
+        theme_color: "#000000",
+        background_color: "#000000",
         display: "standalone",
         scope: "/",
         start_url: "/",
