@@ -23,7 +23,7 @@ const SearchInput = ({ value, onChange }: Props) => {
         } else {
             setModal(false);
         }
-    }, [value, suggestions]);
+    }, [value]);
 
     return (
         <div className='relative'>
@@ -34,7 +34,10 @@ const SearchInput = ({ value, onChange }: Props) => {
                         <li
                             key={i}
                             className="px-4 py-1 cursor-pointer hover:bg-gray-100"
-                            onClick={() => onChange(sug)}
+                            onClick={() => {
+                                setModal(false)
+                                onChange(sug);
+                            }}
                         >
                             {sug}
                         </li>
