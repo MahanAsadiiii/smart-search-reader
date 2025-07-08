@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+html,
+body {
+  @apply bg-black text-white;
+}
+
+.highlight {
+  @apply bg-yellow-400 text-black;
+}
+
+.highlight.active {
+  @apply bg-green-500 border-2 font-bold border-green-700;
+}
